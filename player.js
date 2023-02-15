@@ -7,8 +7,8 @@ function Player() {
 		this.sprite.src = "spaceship2.png";
 	};
 
-	this.acceleration = 0.1;
-	this.maxVelocity = 5;
+	this.acceleration = 1;
+	this.maxVelocity = 10;
 	this.health = 100;
 	this.color = "white";
 	this.location = {
@@ -48,7 +48,7 @@ function Player() {
 		this.health -= damage;
 		this.damaged = true;
 		this.sprite.src = "spaceship_hurt.png";
-		setTimeout(() => {
+		setTimeou3(() => {
 			this.sprite.src = "spaceship2.png";
 		}, 1000);
 	}
@@ -58,7 +58,7 @@ function Player() {
 function Bullet() {
 	this.color = "#7777FF";
 	
-	this.speed = 1.5;
+	this.speed = 5;
 
 	this.location = {
 		x: null,
@@ -85,10 +85,10 @@ function Bullet() {
 
 function Enemy() {
 	this.color = `hsl(${Math.floor(Math.random()*360)}, 50%, 50%)`;
-	this.speed = 2;
+	this.speed = Math.random()*10;
 	this.size = {
-		w: 40,
-		h: 40,
+		w: 20,
+		h: 20,
 	}
 
 	this.location = {

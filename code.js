@@ -26,7 +26,7 @@ function init() {
 	score = new Score();
 
 
-	spawnEnemies(3000, 100, 20);
+	spawnEnemies(100, 100, 200);
 
 	window.requestAnimationFrame(gameloop);
 }
@@ -48,7 +48,7 @@ function gameloop(timeStamp) {
 
 function spawnEnemies(spawnTimeDiff, minSpawnTime, maxEnemies) {
 	if(maxEnemies > enemies.length) {
-		let randomTime = Math.random()*(spawnTimeDiff) + minSpawnTime; 
+		let randomTime = (spawnTimeDiff) + minSpawnTime; 
 		// console.log(randomTime);
 		setInterval(()=> {
 			let temp = new Enemy();
@@ -122,7 +122,7 @@ function user_inputs() {
 		temp.location.x += (player.size.w - temp.size.w)/2;
 		temp.location.y -= temp.size.h;
 		bullets.push(temp);
-		player.velocity.y = temp.speed;
+		player.velocity.y = 0.3*temp.speed;
 		mouseclicks -=1;
 	}
 }
